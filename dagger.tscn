@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4j3dnj3kipc4"]
+
+[ext_resource type="Texture2D" uid="uid://cvmvysi8v1ngh" path="res://sprites/Items/weapon_dagger.png" id="1_1n5yg"]
+[ext_resource type="Script" uid="uid://w00ntlafwor8" path="res://dagger.gd" id="1_ixfv2"]
+
+[node name="Dagger" type="Node2D"]
+z_index = 1
+position = Vector2(40, 0)
+rotation = 1.5708
+script = ExtResource("1_ixfv2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1n5yg")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 20
+input_pickable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackArea"]
+position = Vector2(2.5, -1)
+scale = Vector2(0.75, 1.1)
+polygon = PackedVector2Array(-11.3333, -10, 4.66667, -17.2727, 7.33333, 9.09091, -14, 9.09091)
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
