@@ -25,9 +25,14 @@ func _ready() -> void:
 		node.player.add_child(remote_transform)
 	
 	all_spawnpoints = spawnpoints.get_children()
-	move_to_random_spawn("1")
-	move_to_random_spawn("2")
+	var chosen_spawn = move_to_random_spawn("1", null)
+	move_to_random_spawn("2", chosen_spawn)
 	
-func move_to_random_spawn(player_id: String) -> void:
-	var random_spawn = randi_range(0, all_spawnpoints.size()-1)
+func move_to_random_spawn(player_id: String, excluded_spawn) -> int:
+	var random_spawn: int
+	while true:
+		random_spawn = randi_range(0, all_spawnpoints.size()-1)
+		if random_spawn != excluded_spawn:
+			break
 	players[player_id].player.global_position = all_spawnpoints[random_spawn].global_position
+	return random_spawn

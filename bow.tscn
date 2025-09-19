@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://5ox8a8i2nppb"]
+
+[ext_resource type="Script" uid="uid://d1yw8eacrtx06" path="res://bow.gd" id="1_2of8d"]
+[ext_resource type="Texture2D" uid="uid://dopcl5isyn7km" path="res://sprites/Items/weapon_bow_arrow.png" id="2_60xqc"]
+[ext_resource type="Texture2D" uid="uid://bs68qj78d6jk5" path="res://sprites/Items/weapon_bow.png" id="3_60xqc"]
+
+[node name="Bow" type="Node2D"]
+z_index = 1
+position = Vector2(40, 0)
+rotation = 1.5708
+script = ExtResource("1_2of8d")
+loaded_texture = ExtResource("2_60xqc")
+unloaded_texture = ExtResource("3_60xqc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_60xqc")

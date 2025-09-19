@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cefkmhw31kpbr"]
+
+[ext_resource type="Script" uid="uid://clb5i6u78twxu" path="res://arrow.gd" id="1_2ndhl"]
+[ext_resource type="Texture2D" uid="uid://b4pti64is2pde" path="res://sprites/Items/weapon_arrow.png" id="1_l5ahi"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_acd0x"]
+bounce = 0.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6a6ax"]
+size = Vector2(6, 43)
+
+[node name="Arrow" type="RigidBody2D"]
+collision_layer = 72
+collision_mask = 117
+physics_material_override = SubResource("PhysicsMaterial_acd0x")
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
+linear_damp = 1.0
+script = ExtResource("1_2ndhl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -20)
+texture = ExtResource("1_l5ahi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_6a6ax")
+debug_color = Color(0.878342, 0.314073, 0.352312, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_rigid_body_2d_body_entered"]

@@ -26,6 +26,7 @@ window/stretch/scale_mode="integer"
 
 Damagable="Can be damaged"
 Spawnpoint=""
+Player="Is a player"
 
 [input]
 
@@ -91,6 +92,11 @@ attack_p2={
 2d_physics/layer_5="Characters"
 2d_physics/layer_6="Objects"
 2d_physics/layer_7="Projectiles"
+
+[physics]
+
+3d/default_gravity=0.0
+2d/default_gravity=0.0
 
 [rendering]
 
